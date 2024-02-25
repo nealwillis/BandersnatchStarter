@@ -20,12 +20,10 @@ except Exception as e:
 collection = client["Monsters"]
 
 
-
 class Database:
     def seed(self, amount):
         """Inserts a new monster into the Monster collection based on input"""
         monsters = []
-        monster_dict_list = []
         for i in range(amount):
             monsters.append(Monster().to_dict())
         uid = collection.insert_many(monsters)
@@ -40,7 +38,7 @@ class Database:
 
     def dataframe(self) -> pd.DataFrame:
         """Turns the monster collection into a pandas dataframe"""
-        return pd.DataFrame(list(collection["Monsters"].find({})))
+        return pd.DataFrame(list(collection.find({})))
 
     def html_table(self) -> str:
         """Turns monster collection into a html table"""
