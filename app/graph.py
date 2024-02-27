@@ -1,6 +1,5 @@
 from altair import Chart
 from altair import Tooltip
-import pandas as pd
 from pandas import DataFrame
 
 

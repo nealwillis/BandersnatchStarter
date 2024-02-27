@@ -38,7 +38,7 @@ class Database:
 
     def dataframe(self) -> pd.DataFrame:
         """Turns the monster collection into a pandas dataframe"""
-        return pd.DataFrame(list(collection.find({})))
+        return pd.DataFrame(list(collection.find({}))).drop(columns="_id")
 
     def html_table(self) -> str:
         """Turns monster collection into a html table"""
